@@ -1,0 +1,297 @@
+linux commands:
+1) touch used  to create file
+ex: touch file1
+
+2) folder creation
+ex: mkdir folder1
+
+3) to open what files or folders were created
+ex: ls
+
+4)to know the present path
+ex: pwd
+
+5) to go back to one path
+ex: cd ..
+
+6) to open a folder
+ex: cd folder1
+
+
+2nd class:
+
+7)to go to root user
+  sudo su
+
+8) to go to root directory
+  cd /
+
+9) to remove folder
+  rmdir folder1
+
+10)to remove file
+  rm file1
+
+11)to open the file 
+  vi file1
+
+12) to edit the opened file the file has to be in insert mode.
+
+to go to the insert mode click ESC+i button
+
+to save the file click ESC and :wq+enter
+
+13)to open the data in the file directly 
+
+  cat file1
+
+to write data in file without saving
+
+ click ESC + :q!
+
+14) to copy the data from one file to another file
+ex: cp file1 file2
+
+15)to rename the file
+
+ex: mv file2 file3
+
+* To copy file1 into file2 and at the same time this command creates the file2(without creating file2 separately)
+ex: cp file1 /tmp/file2
+
+* To copy the file from one directory to another directory
+Ex: cp file2 /home/folder1/
+
+Permissions of files or folders:
+
+User – The owner of the file. Mostly, one who created the file.
+Group – The group which the file belongs to.
+Others – Everyone other than the user and the group.
+Read, Write and Execute can also be denoted using Octal.
+Read (r) – 4
+Write (w) – 2
+Execute (x) – 1
+Let’s say a file has read, write and execute permissions, then you can denote that in a number as 7 (ie, 4+2+1=7). You will understand about this more in the following sections.
+Changing permissions of a file “chmod” command
+Changing permissions of a file
+“chmod” command is used for changing the permission of a file/directory. You need two parameters for chmod command as shown below.
+chmod (permission-to-be-assigned) (path-to-file)
+ 
+. To assign permissions for ugo at the same... by suresh bandi
+suresh bandi
+6:33 AM
+. To assign permissions for ugo at the same time, you can use the following syntax.
+EX: chmod ugo+x demo.sh
+
+* chmod command :
+   Linux chmod command is used to change the access permissions of files and directories. It stands for change mode.
+
+EX:  
+ 1)-rw-r--r--. 1 root     root       0 Jun  8 00:42 file
+ 2)drwxr-xr-x. 2 root     root       6 Jun  8 00:54 folder2
+
+  On each line, the first character identifies the type of entry that is being listed. If it is a dash (-) it is a file. If it is the letter d it is a directory.
+
+  The first 3 characters are USER permissions,
+   Next 3 characters are Group permissions,
+   Last 3 characters are Others permissions.
+
+EX: 1. chmod ugo+rwx file1
+        2. chmod go-wx file1
+        3. chmod ugo+rwx folder1/
+        
+* To list the file permissions for the files and directories or folders have            to use this command.
+
+EX: ls -la
+
+*ifconfig command:
+     if config command is used to for dispaying IP configuration.
+
+* hostname:
+
+ "hostname command displays the name of the current host system".
+Only users with root user authority can set the host name. The         mkdev command and the chdev commands also set the host name permanently. 
+
+* timedatectl command:
+
+   The timedatectl command allows you to both query and change the system clock and its settings on Linux systems
+
+*clear command :
+   You can clear the terminal screen in Linux using the clear command.
+
+*history command:
+   used to see the previously used commands.
+
+*top command:
+  The top command is used for memory monitoring. It works only on Linux platform. The top command produces an ordered list of running processes selected by user-specified criteria, and updates it periodically. By default, ordering is by CPU usage, and it shows processes that consume maximum CPU.
+
+*du command: 
+  The du command in Linux is used to estimate file space usage. It displays the sizes of directories and files, helping users identify which directories are consuming the most disk space.
+
+ to check the memory of a file
+  du file1  OR du -sh file1
+
+* to check the memory of folder 
+du -sh folder1/
+
+*useradd coomand:
+  The useradd command creates a new user account.
+   ex: useradd sivarani
+    since, sivarani is a username.
+*passwd command:
+   The passwd command sets and changes passwords for users. Use this command to change your own password or another user's password. 
+   syntax: passwd username
+   ex: passwd sivarani
+
+*To add this user to the root user we have use vi /etc/sudoers command. after opening sudoers file, below the root, we have to enter the username(which w ehave created) and copy,paste the ALL=ALL ALL as shown beside the root.
+
+ex: root           ALL=ALL   ALL
+      username ALL=ALL   ALL
+*cat /etc/passwd command:
+    The/etc/passwd file is a plain text file with information for all user accounts. It includes a list of user accounts on the system, as well as details such as user ID, group ID, home directory.
+
+* whoami command:
+   In its simplest form, "the 'whoami' command is used to display the username of the current user".  If you're logged into a Linux system and you're not sure which user you're operating as, the 'whoami' command can quickly provide the answer.
+
+*su command:
+   The 'su' command in Linux is used to switch to another user. You can use it by typing su username in the terminal, where ‘username’ is the user you want to switch to.
+
+  Syntax: su - username
+  ex: su - sivarani
+
+*sudo su command:
+  Su is a command-line utility and stands for switch user or substitute user. Like sudo, the utility enables a user to run commands under a different account. However, sudo has some important advantages over su. The sudo command enabling a standard user to create another user account.
+
+*vi /etc/sudoers command:
+    In the Linux and Unix-like operating systems, the sudoers file is a configuration file used by the sudo command, which allows a permitted user to execute a command as another user (typically the superuser, or root). This mechanism is crucial for system administration, as it provides a way to grant specific permissions without giving unrestricted root access.
+
+* cat /etc/group command:
+  It stores group information or defines the user groups i.e. it defines the groups to which users belong. There is one entry per line, and each line has the following format (all fields are separated by a colon (:).
+  
+  ex: cdrom:x:24:vivek,student13,raj
+
+     In the above example :
+         cdrom is is the name of group. If you run ls -l command, you will see this name printed in the group field.
+         x is a password , Generally password is not used, hence it is empty/blank. It can store encrypted password. This is useful to implement privileged groups.
+         24 is a Group ID(GID), Each user must be assigned a group ID. You can see this number in your /etc/passwd file.
+         vivek,student13,raj  is a list of user names of users who are members of the group. The user names, must be separated by commas.
+
+
+*usermod command:
+    The 'usermod' command is a system administration command in Linux used to modify a user's system settings. 
+
+*yum install httpd :
+    It is used to run HTTP ervice in LINUX.
+
+*systemctl status httpd : this command is used to check the status of the httpd website.
+  systemctl start httpd : this command is used to start the httpd website.
+  systemctl status httpd : this command is used to stop the httpd website.
+
+*What is crond service in linux: Cron is a system that helps Linux users to schedule any task. However, a cron job is any defined task to run in a given time period.
+
+*What is the difference between crontab and Crond?
+The cron daemon ( crond ) is a system-managed executable that runs in memory with which users may schedule tasks. The user command to work with the cron service is crontab (cron table). The crontab file is a simple text file that instructs the cron daemon to perform a task at a certain time or interval.
+
+*sudo yum install cronie -y :
+   This command is used to install crontab.
+
+*crontab -e :
+  This command to used to open and modify the data in crontab.
+
+*crontab -l:
+     used to view crontab entries (cron jobs) and display system crontab file contents. 
+*crontab -r – will remove the current crontab file.
+
+*sudo systemctl status crond.service :it is used to check crond service is running or not.
+*sudo systemctl start crond.service : it is used to start the crond service.
+*sudo systemctl status crond.service : it is used to stop the crond service.
+
+
+*To set the password for ec2-user:
+      1) we have to use passwd ec2-user,
+      2) set the password as you wish, 
+      3) to set the password successfully type "vi /etc/ssh/sshd_config" command, then sshd will opened, the type YES besides the PASSWORDAUTHENTICATION.
+          EX: PASSWORDAUTHENTICATION    YES
+
+*To set the password through windows powershell, we have to use 
+   ssh username@ip address
+
+*to check which server we are using in windows powershell
+   cat /etc/os-release
+
+*to check file size:
+    du -sh file1
+
+*to compress the file size :
+    tar -cvzf file1.tar.gz file1
+*  to extract the file 
+    tar -xvzf file1.tar.gz
+
+
+[root@ip-172-31-42-13 ec2-user]# touch file1
+[root@ip-172-31-42-13 ec2-user]# vi file1
+[root@ip-172-31-42-13 ec2-user]# du -sh *
+0       devopsfile
+40K     file1
+4.0K    file1.tar.gz
+[root@ip-172-31-42-13 ec2-user]# ls
+devopsfile  file1  file1.tar.gz
+[root@ip-172-31-42-13 ec2-user]# rm -rf file1
+[root@ip-172-31-42-13 ec2-user]# ls
+devopsfile  file1.tar.gz
+[root@ip-172-31-42-13 ec2-user]#  tar -xvzf file1.tar.gz
+file1
+[root@ip-172-31-42-13 ec2-user]# ls
+devopsfile  file1  file1.tar.gz
+[root@ip-172-31-42-13 ec2-user]# 
+
+
+*to copy the file with the server
+scp filename username@ip:/tmp
+
+*netstat Command:
+The netstat command generates displays that show network status and protocol statistics. You can display the status of TCP and UDP endpoints in table format, routing table information, and interface information.
+
+
+JUNE 18th:
+
+*to connect to the server through the key:
+
+   1. create a server ,
+   2. after creating a server, click connect on the instances page, the the page will open, there you can see SSH CLIENT , click on that, then you can see key path.
+  
+*to connect to the server through window shell, > go to the key path(where the key downloaded during the server creation), > then open window shell by right clicking > then powershell will opened , > then to connect the server , you have to type "ssh -i key name username@ip address".
+
+  ex: ssh -i key2.pem ec2-user@ip address
+
+*to view the first 2 lines in a file1
+    head -n 2 file1
+
+*to view the last two lines in a files
+    tail -n 2 file1
+
+*to send the data from file1 to file2
+    cat file1 > file2
+
+*to view the running processess
+   ps
+
+*to view the differance b/n two files file1 file2 
+    diff file1 file2
+*to check particular port is allowed for the server or not.
+  telnet ipaddress port number.
+
+
+*Using the groups Command
+The groups command is a straightforward tool in Linux for listing user groups. It shows the groups associated with the current user when run without arguments, and can also display groups for any specified user. Here’s the simple process:
+
+Open your terminal.
+To view your groups, type:bash
+
+*For viewing another user’s groups, type:
+
+groups [username]
+
+
+
+
